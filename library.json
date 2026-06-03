@@ -1,0 +1,13 @@
+{
+  "name": "BareUtils",
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "Lightweight, zero-fragmentation C/C++ embedded utilities for MAC addresses, string trimming, and binary-to-hex conversions.",
+  "keywords": "utils, embedded, mac, hex, binary, string, performance, esp32, arduino",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dabredo/bare-utils.git"
+  },
+  "frameworks": "*",
+  "platforms": "*"
+}

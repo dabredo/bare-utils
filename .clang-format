@@ -1,0 +1,13 @@
+---
+Language: Cpp
+BasedOnStyle: Webkit
+
+IndentWidth: 2
+TabWidth: 2
+ContinuationIndentWidth: 2
+
+NamespaceIndentation: All
+FixNamespaceComments: false
+
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: Empty
