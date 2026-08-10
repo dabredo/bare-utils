@@ -5,7 +5,10 @@ Optimized, zero-fragmentation C/C++ utilities for embedded devices (Arduino, ESP
 ## Features
 
 - **MacUtils**: Safe conversion between binary MAC arrays and formatted strings.
-- **StringUtils**: High-performance string utilities, including in-place string trimming and zero-allocation integer-to-text conversion via circular buffering.
+- **StringUtils**: Zero-allocation, high-performance string utilities for microcontrollers:
+  - `trim`: Fast in-place whitespace removal using pointer arithmetic.
+  - `numberToText`: Zero-allocation `uint32_t` to text conversion with a 4-slot static circular buffer.
+  - `buildParts`: Linear-time $O(N)$ string concatenation using `std::initializer_list` without dynamic allocation or `strcat` rescans.
 - **BinaryUtils**: Ultra-fast translation between raw binary buffers and hex representation.
 
 ## Usage

@@ -30,4 +30,21 @@ namespace Utils {
 
     return circularBuffers[currentBuffer];
   }
+
+  char* buildParts(char* destination, std::initializer_list<const char*> parts) {
+    if (destination == nullptr) return nullptr;
+
+    char* ptr = destination;
+
+    for (const char* part : parts) {
+      if (part != nullptr) {
+        while (*part != '\0') {
+          *ptr++ = *part++;
+        }
+      }
+    }
+
+    *ptr = '\0';
+    return destination;
+  }
 }
