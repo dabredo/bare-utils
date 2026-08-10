@@ -63,6 +63,47 @@ void test_number_to_text_circular_buffer_overwrite(void) {
   TEST_ASSERT_EQUAL_STRING("555", ptr1);
 }
 
+void test_build_parts_basic_concatenation(void) {
+  char buffer[64];
+  char* result = Utils::buildParts(buffer, {"Hello", " ", "world", "!"});
+
+  TEST_ASSERT_EQUAL_STRING("Hello world!", buffer);
+  TEST_ASSERT_EQUAL_PTR(buffer, result);
+}
+
+void test_build_parts_with_null_pointers(void) {
+  char buffer[64];
+  Utils::buildParts(buffer, {"abc", nullptr, "dfg", nullptr, "hij"});
+
+  TEST_ASSERT_EQUAL_STRING("abcdfghij", buffer);
+}
+
+void test_build_parts_empty_list(void) {
+  char buffer[64] = "previous content";
+  Utils::buildParts(buffer, {});
+
+  TEST_ASSERT_EQUAL_STRING("", buffer);
+}
+
+void test_build_parts_null_destination(void) {
+  char* result = Utils::buildParts(nullptr, {"test", "123"});
+
+  TEST_ASSERT_NULL(result);
+}
+
+void test_build_parts_combined_with_number_to_text(void) {
+  char buffer[64];
+  uint32_t deviceId = 12345678;
+
+  Utils::buildParts(buffer, {
+    "abc/",
+    Utils::numberToText(deviceId),
+    "/dfg"
+  });
+
+  TEST_ASSERT_EQUAL_STRING("abc/12345678/dfg", buffer);
+}
+
 int main(int argc, char** argv) {
   UNITY_BEGIN();
 
@@ -74,6 +115,12 @@ int main(int argc, char** argv) {
   RUN_TEST(test_number_to_text_basic_values);
   RUN_TEST(test_number_to_text_concurrent_buffers);
   RUN_TEST(test_number_to_text_circular_buffer_overwrite);
+
+  RUN_TEST(test_build_parts_basic_concatenation);
+  RUN_TEST(test_build_parts_with_null_pointers);
+  RUN_TEST(test_build_parts_empty_list);
+  RUN_TEST(test_build_parts_null_destination);
+  RUN_TEST(test_build_parts_combined_with_number_to_text);
 
   return UNITY_END();
 }
