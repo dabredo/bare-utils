@@ -5,7 +5,7 @@ Optimized, zero-fragmentation C/C++ utilities for embedded devices (Arduino, ESP
 ## Features
 
 - **MacUtils**: Safe conversion between binary MAC arrays and formatted strings.
-- **StringUtils**: High-performance, in-place string trimming using pointers.
+- **StringUtils**: High-performance string utilities, including in-place string trimming and zero-allocation integer-to-text conversion via circular buffering.
 - **BinaryUtils**: Ultra-fast translation between raw binary buffers and hex representation.
 
 ## Usage

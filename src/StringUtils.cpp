@@ -1,6 +1,7 @@
 #include "StringUtils.h"
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 namespace Utils {
   void trim(char* string) {
@@ -18,5 +19,15 @@ namespace Utils {
       *end = '\0';
       end--;
     }
+  }
+
+  const char *numberToText(uint32_t number) {
+    static char circularBuffers[4][12];
+    static uint8_t currentBuffer = 0;
+
+    currentBuffer = (currentBuffer + 1) % 4;
+    ultoa(number, circularBuffers[currentBuffer], 10);
+
+    return circularBuffers[currentBuffer];
   }
 }
