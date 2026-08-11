@@ -1,13 +1,27 @@
----
 Language: Cpp
-BasedOnStyle: Webkit
+BasedOnStyle: LLVM
 
+# Indentation
 IndentWidth: 2
 TabWidth: 2
 ContinuationIndentWidth: 2
+UseTab: Never
 
-NamespaceIndentation: All
-FixNamespaceComments: false
+# Namespaces
+NamespaceIndentation: None
 
+# Braces and functions
 BreakBeforeBraces: Attach
 AllowShortFunctionsOnASingleLine: Empty
+
+# Pointers and references
+PointerAlignment: Left
+
+# Line length
+ColumnLimit: 100
+
+# Includes
+SortIncludes:
+  Enabled: true
+  IgnoreCase: false
+IncludeBlocks: Regroup

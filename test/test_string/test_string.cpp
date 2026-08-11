@@ -1,9 +1,9 @@
 #include <BareUtils.h>
+#include <cstdlib>
 #include <unity.h>
-#include <stdlib.h>
 
-void setUp(void) { }
-void tearDown(void) { }
+void setUp(void) {}
+void tearDown(void) {}
 
 void test_string_trim_with_leading_and_trailing_spaces(void) {
   char text[] = "  hello world  ";
@@ -95,11 +95,7 @@ void test_build_parts_combined_with_number_to_text(void) {
   char buffer[64];
   uint32_t deviceId = 12345678;
 
-  Utils::buildParts(buffer, {
-    "abc/",
-    Utils::numberToText(deviceId),
-    "/dfg"
-  });
+  Utils::buildParts(buffer, {"abc/", Utils::numberToText(deviceId), "/dfg"});
 
   TEST_ASSERT_EQUAL_STRING("abc/12345678/dfg", buffer);
 }

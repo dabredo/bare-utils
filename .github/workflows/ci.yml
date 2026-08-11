@@ -19,10 +19,18 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install PlatformIO
+      - name: Install Dependencies & Linters
         run: |
           python -m pip install --upgrade pip
           pip install platformio
+          sudo apt-get update && sudo apt-get install -y cppcheck clang-tidy clang-format
 
-      - name: Run Unity Tests (Native)
+      - name: 1. Check Code Formatting (clang-format)
+        run: |
+          find src test -type f \( -name "*.cpp" -o -name "*.h" \) | xargs clang-format --dry-run --Werror
+
+      - name: 2. Run Static Analysis (Cppcheck + Clang-Tidy)
+        run: pio check --environment=native --fail-on-defect=medium
+
+      - name: 3. Run Unity Tests (Native)
         run: pio test -e native
