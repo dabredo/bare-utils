@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-static inline char* ultoa(uint32_t val, char* str, int base) {
+static inline char* utoa(uint32_t val, char* str, int base) {
   snprintf(str, 12, "%u", val);
   return str;
 }

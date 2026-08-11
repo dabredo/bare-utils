@@ -27,7 +27,7 @@ const char* numberToText(uint32_t number) {
   static uint8_t currentBuffer = 0;
 
   currentBuffer = (currentBuffer + 1) % 4;
-  ultoa(number, circularBuffers[currentBuffer], 10);
+  utoa(number, circularBuffers[currentBuffer], 10);
 
   return circularBuffers[currentBuffer];
 }
