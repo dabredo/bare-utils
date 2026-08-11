@@ -1,6 +1,6 @@
 {
   "name": "BareUtils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "ISC",
   "description": "Lightweight, zero-fragmentation C/C++ embedded utilities for MAC addresses, string trimming, and binary-to-hex conversions.",
   "keywords": "utils, embedded, mac, hex, binary, string, performance, esp32, arduino",
