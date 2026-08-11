@@ -21,7 +21,8 @@ PointerAlignment: Left
 ColumnLimit: 100
 
 # Includes
-SortIncludes:
-  Enabled: true
-  IgnoreCase: false
+SortIncludes: CaseSensitive
+# SortIncludes:
+#   Enabled: true
+#   IgnoreCase: false
 IncludeBlocks: Regroup
