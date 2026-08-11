@@ -24,7 +24,6 @@ void hexToBytes(const char* hex, uint8_t* bytes) {
     return 0;
   };
 
-  //while (*hex && *(hex + 1)) {
   while (*hex != '\0' && *(hex + 1) != '\0') {
     *bytes++ = (nibble(*hex) << 4) | nibble(*(hex + 1));
     hex += 2;
